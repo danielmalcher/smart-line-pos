@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 924b108ca72a82c46b7f857047a56eec,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 924b108ca72a82c46b7f857047a56eec,
         type: 3}
@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 924b108ca72a82c46b7f857047a56eec,
         type: 3}
       propertyPath: m_Name
-      value: Printer Variant
+      value: Printer
       objectReference: {fileID: 0}
     - target: {fileID: 4052797199018717817, guid: 924b108ca72a82c46b7f857047a56eec,
         type: 3}
@@ -99,7 +99,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b47d029d06a76654c9add4a4cba1dd07, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -8068073526183931155, guid: 924b108ca72a82c46b7f857047a56eec, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 924b108ca72a82c46b7f857047a56eec, type: 3}
