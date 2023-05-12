@@ -27,9 +27,10 @@ public class PrinterController : MonoBehaviour
     }
 
     void setPrinterDoorStatus(){
-        if(isPrinting){
+        if(!printerSound.isPlaying &&  isPrinting){
             printerAnimator.SetBool("isOpen", true);
             isPrinting = false;
+            isPrinterDoorOpen = true;
         }
     }
 }
