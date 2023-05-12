@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Showroom 1.unity
     guid: 73da315e88628f344b663a93379ce4b8
   - enabled: 0
@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Samples/VIVE Input Utility/1.17.0/5. Collider Event/ColliderEvent.unity
     guid: 080a51b1590750b4ea31c89ea670e257
+  - enabled: 1
+    path: Assets/Scenes/Showroom 2.unity
+    guid: c2a1c9abb78fbff40a9cd28ddc65e691
   m_configObjects:
     com.htc.upm.wave.xrsdk.xrsettings: {fileID: 11400000, guid: ddf52af2c136e1e4481efebc15884d8f,
       type: 2}
