@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class AutoscrewController : MonoBehaviour
 {
-    [SerializeField]private GameObject autoscrewHead;
-    private Animator screwHead; 
+    private Animator screwAnimator; 
     // Start is called before the first frame update
     void Start()
     {
-        screwHead = autoscrewHead.GetComponent<Animator>();      
+        screwAnimator = gameObject.GetComponent<Animator>();      
     }
 
     void Screw(){
-        screwHead.SetTrigger("setScrew");
+        screwAnimator.SetTrigger("setScrew");
     }
 }
