@@ -5,7 +5,7 @@ using UnityEngine;
 public class InspectionClawController : MonoBehaviour
 {
     private Animator clawAnimator;
-    private bool isIdle = true;
+    private bool isIdle = false;
     // Start is called before the first frame update
     void Start()
     {
