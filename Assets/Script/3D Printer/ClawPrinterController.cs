@@ -23,12 +23,13 @@ public class ClawPrinterController : MonoBehaviour
 
     void checkPrinterStatus(){
         if(printerController.isPrinterDoorOpen){
-            clawAnimator.SetTrigger("grabbingBox");
+            clawAnimator.SetBool("grabbingBox", true);
         }
     }
 
     private void finishMovement(){
         if(movementEnd){
+            clawAnimator.SetBool("grabbingBox", false);
             printerController.isPrinterDoorOpen = false;
             printerController.printerAnimator.SetBool("isOpen", false);
         }

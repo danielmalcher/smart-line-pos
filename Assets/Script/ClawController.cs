@@ -5,23 +5,26 @@ using UnityEngine;
 public class ClawController : MonoBehaviour
 {
     [SerializeField]private GameObject clawSocket;
-    private Transform boxTransform;
-    private bool holdingBox = false;
-    
+    private Transform target;
+    public bool holdingBox = false;
+
     void OnTriggerStay(Collider col){
-        if(col.gameObject.layer == 9){
-            ReleaseTarget(boxTransform, col.transform);
-        }
         if(col.gameObject.layer == 6){
-            boxTransform = col.gameObject.transform;
-            GrabTarget(boxTransform);
+            target = col.gameObject.transform;
+            holdingBox = true;
+            GrabTarget(target);
+        }
+    }
+    
+    private void OnTriggerExit(Collider col) {
+        if(col.gameObject.layer == 6){
+            holdingBox = false;
         }
     }
 
     void GrabTarget(Transform targetTransform){
         targetTransform.position = clawSocket.transform.position;
         targetTransform.rotation = clawSocket.transform.rotation;
-        Debug.Log(targetTransform);
     }
 
     void ReleaseTarget(Transform targetTransform, Transform destinationTransform){
