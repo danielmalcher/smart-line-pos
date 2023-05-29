@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class VisualInspectionState : IState
 {
-    public void OnEnter(){
-
+    public void OnEnter(StateManager stateManager){
+        stateManager.inspectionClawController.InspectBoxPart();
     }
 
-    public void UpdateState(){
-
+    public void UpdateState(StateManager stateManager){
+        stateManager.ChangeState(stateManager.laserPrintState);
     }
 
-    public void OnExit(){
+    public void OnExit(StateManager stateManager){
         
     }
 }

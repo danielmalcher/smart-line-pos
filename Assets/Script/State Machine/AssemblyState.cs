@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class AssemblyState : IState
 {
-    public void OnEnter(){
+    public void OnEnter(StateManager stateManager){
 
     }
 
-    public void UpdateState(){
+    public void UpdateState(StateManager stateManager){
 
     }
 
-    public void OnExit(){
+    public void OnExit(StateManager stateManager){
         
     }
 }

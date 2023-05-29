@@ -4,23 +4,52 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    private IState currentState;
+    public IState currentState;
+    private ConveyorBelt conveyorBelt;
 
-    void Update()
-    {
-        currentState.UpdateState();
+
+    public AssemblyState assemblyState = new AssemblyState();
+    public AutoscrewState autoscrewState = new AutoscrewState();
+    public LaserPrintState laserPrintState = new LaserPrintState();
+    public PackagingState packagingState = new PackagingState();
+    public PrinterState printerState = new PrinterState();
+    public VisualInspectionState visualInspectionState = new VisualInspectionState();
+
+    public PrinterController printerController;
+    public AssemblyController assemblyController; 
+    public AutoscrewController autoscrewController;
+    public LaserClawController laserClawController;
+    public PackagingController packagingController;
+    public InspectionClawController inspectionClawController;
+
+    
+    void Start(){
+        ChangeState(printerState);
+    }
+
+    public void StartProduction(){
+        ChangeState(printerState);
     }
 
     public void ChangeState(IState newState){
-        currentState.OnExit();
+        if(currentState != null){
+            currentState.OnExit(this);
+        }
         currentState = newState;
-        currentState.OnEnter();
+        currentState.OnEnter(this);
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if(other.tag == "EndOfState"){
+            currentState.UpdateState(this);
+        }
+
     }
 }
 
 public interface IState
 {
-    public void OnEnter();
-    public void UpdateState();
-    public void OnExit();
+    public void OnEnter(StateManager stateManager);
+    public void UpdateState(StateManager stateManager);
+    public void OnExit(StateManager stateManager);
 }

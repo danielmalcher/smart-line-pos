@@ -12,7 +12,13 @@ public class InspectionClawController : MonoBehaviour
         clawAnimator = gameObject.GetComponent<Animator>();
     }
 
-    void InspectBoxPart(){
+    public void InspectBoxPart(){
         clawAnimator.SetTrigger("grabBox");
+        StartCoroutine(DelayAnimation());
+        clawAnimator.SetTrigger("grabBox");
+    }
+
+    IEnumerator DelayAnimation(){
+        yield return new WaitForSeconds(4);
     }
 }

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PrinterState : IState
 {
-    public void OnEnter(){
-
+    public void OnEnter(StateManager stateManager){
+        stateManager.printerController.PrintBox();
     }
 
-    public void UpdateState(){
-
+    public void UpdateState(StateManager stateManager){
+        stateManager.ChangeState(stateManager.visualInspectionState);
     }
 
-    public void OnExit(){
-        
+    public void OnExit(StateManager stateManager){
+        stateManager.printerController.isPrinterDoorOpen = false;
+        stateManager.printerController.isPrinting = false;
     }
 }
