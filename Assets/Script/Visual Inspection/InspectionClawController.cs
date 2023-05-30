@@ -19,6 +19,6 @@ public class InspectionClawController : MonoBehaviour
     }
 
     IEnumerator DelayAnimation(){
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(7);
     }
 }
