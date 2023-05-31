@@ -13,10 +13,6 @@ public class ConveyorBelt : MonoBehaviour
     [SerializeField]private GameObject positionReference;
     private Vector3 transformValue;
 
-    void Start(){
-        
-    }
-
     public void PowerConveyorBelt(){
         isConveyorActive = !isConveyorActive;
     }
@@ -51,6 +47,8 @@ public class ConveyorBelt : MonoBehaviour
                 objectsOnBelt[i].transform.position = new Vector3(objectsOnBelt[i].transform.position.x, objectsOnBelt[i].transform.position.y, transformValue.z);
                 objectsOnBelt[i].transform.rotation = new Quaternion(90,90,0,0);
                 objectsOnBelt[i].GetComponent<Rigidbody>().velocity = speed*direction*Time.deltaTime;
+            } else {
+                objectsOnBelt[i].transform.position = new Vector3(objectsOnBelt[i].transform.position.x, objectsOnBelt[i].transform.position.y, transformValue.z);
             }
         }
     }

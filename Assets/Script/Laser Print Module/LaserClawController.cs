@@ -17,16 +17,18 @@ public class LaserClawController : MonoBehaviour
         clawAnimator = gameObject.GetComponent<Animator>();
     }
 
-    void PlaceBoxRight()
+    public void PlaceBoxRight()
     {
         clawAnimator.SetTrigger("grabRight");
         isBoxInRightPrinter = true;
+        ReturnBoxRight();
     }
 
     void PlaceBoxLeft()
     {
         clawAnimator.SetTrigger("grabLeft");
         isBoxInLeftPrinter = true;
+        ReturnBoxRight();
     }
 
     void ReturnBoxRight()
@@ -34,6 +36,7 @@ public class LaserClawController : MonoBehaviour
         if(isBoxInLeftPrinter){
             clawAnimator.SetTrigger("returnLeft");
             isBoxInLeftPrinter = false;
+            ReturnBoxLeft();
         }        
     }
 

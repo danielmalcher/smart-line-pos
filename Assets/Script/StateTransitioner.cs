@@ -10,6 +10,7 @@ public class StateTransitioner : MonoBehaviour
     void OnTriggerEnter(Collider col){
         if(col.gameObject.layer == 6){
             stateManager.currentState.UpdateState(stateManager);
+            gameObject.SetActive(false);
         }
     }
 }
