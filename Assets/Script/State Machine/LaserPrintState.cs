@@ -5,7 +5,7 @@ using UnityEngine;
 public class LaserPrintState : IState
 {
     public void OnEnter(StateManager stateManager){
-        stateManager.laserClawController.PlaceBoxRight();
+        stateManager.laserClawController.StartLaserPrint();
     }
 
     public void UpdateState(StateManager stateManager){
@@ -13,6 +13,8 @@ public class LaserPrintState : IState
     }
 
     public void OnExit(StateManager stateManager){
-        
+        foreach(LaserSocketPositioner socket in stateManager.laserClawController.laserSockets){
+            socket.boxHasBeenRemoved = false;
+        }
     }
 }

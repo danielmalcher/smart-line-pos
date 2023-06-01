@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class LaserSocketPositioner : MonoBehaviour
 {
-    [SerializeField]private Transform socketPosition;
+    [SerializeField]private Transform socketTransform;
     private Transform target;
-    private bool boxBeingMoved;
+    public bool boxHasBeenRemoved;
 
     void OnCollisionStay(Collision col){
-        if(col.gameObject.layer == 6 && !boxBeingMoved){
+        if(col.gameObject.layer == 6 && !boxHasBeenRemoved){
             KeepTarget(col.gameObject.transform);
         }
     }
 
     void OnTriggerStay(Collider col){
         if(col.gameObject.layer == 10){
-            boxBeingMoved = true;
+            boxHasBeenRemoved = true;
         }
     }
 
     void KeepTarget(Transform target){
-        target.position = socketPosition.position;
+        target.position = socketTransform.position;
+        target.rotation = socketTransform.rotation;
     }
 }
