@@ -12,6 +12,9 @@ public class ConveyorBelt : MonoBehaviour
     [SerializeField]private List<GameObject> boxes;
     [SerializeField]private GameObject positionReference;
     private Vector3 transformValue;
+    private Quaternion rotationValue;
+
+    private bool boxIsAssembled = false;
 
     public void PowerConveyorBelt(){
         isConveyorActive = !isConveyorActive;
@@ -22,20 +25,22 @@ public class ConveyorBelt : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision col){
-        if(col.gameObject.layer == 6 && !isConveyorActive){
+        if((col.gameObject.layer == 6 || col.gameObject.layer == 11) && !isConveyorActive){
             PowerConveyorBelt();
         }
-        if(col.gameObject.layer == 6){
+        if(col.gameObject.layer == 6 || col.gameObject.layer == 11){
             objectsOnBelt.Add(col.gameObject);
             transformValue = col.gameObject.transform.position;
-            Debug.Log("enter:" + Time.deltaTime);
+        }
+        if(col.gameObject.layer == 11){
+            rotationValue = col.gameObject.transform.rotation;
+            boxIsAssembled = true;
         }
     }
 
     void OnCollisionExit(Collision col){
-        if(col.gameObject.layer == 6){
+        if(col.gameObject.layer == 6 || col.gameObject.layer == 11){
             objectsOnBelt.Remove(col.gameObject);
-            Debug.Log("exit:" + objectsOnBelt.Count);
             PowerConveyorBelt();
         }
     }
@@ -43,9 +48,12 @@ public class ConveyorBelt : MonoBehaviour
     void MoveObjects(){
         for(int i = 0; i <= objectsOnBelt.Count -1; i++){
             if(isConveyorActive){
-                Debug.Log("a");
                 objectsOnBelt[i].transform.position = new Vector3(objectsOnBelt[i].transform.position.x, objectsOnBelt[i].transform.position.y, transformValue.z);
-                objectsOnBelt[i].transform.rotation = new Quaternion(90,90,0,0);
+                if(!boxIsAssembled){
+                    objectsOnBelt[i].transform.rotation = new Quaternion(90,-90,0,0);
+                }else{
+                    objectsOnBelt[i].transform.rotation = rotationValue;
+                }
                 objectsOnBelt[i].GetComponent<Rigidbody>().velocity = speed*direction*Time.deltaTime;
             } else {
                 objectsOnBelt[i].transform.position = new Vector3(objectsOnBelt[i].transform.position.x, objectsOnBelt[i].transform.position.y, transformValue.z);

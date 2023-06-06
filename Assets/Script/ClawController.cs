@@ -16,15 +16,14 @@ public class ClawController : MonoBehaviour
     }
 
     void OnTriggerStay(Collider col){
-        if(col.gameObject.layer == 6){
-            Debug.Log(col.gameObject);
+        if(col.gameObject.layer == 6  || col.gameObject.layer == 11){
             target = col.gameObject.transform;
             GrabTarget(target);
         }
     }
 
     void OnTriggerExit(Collider col){
-        if(col.gameObject.layer == 6){
+        if(col.gameObject.layer == 6 || col.gameObject.layer == 11){
             col.gameObject.transform.position = placementSocket.position;
             col.gameObject.transform.rotation = placementSocket.rotation;
         }
