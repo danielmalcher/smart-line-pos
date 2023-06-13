@@ -5,7 +5,7 @@ using UnityEngine;
 public class StateManager : MonoBehaviour
 {
     public IState currentState;
-    private ConveyorBelt conveyorBelt;
+    public ConveyorBelt conveyorBelt;
 
 
     public AssemblyState assemblyState = new AssemblyState();
@@ -43,7 +43,6 @@ public class StateManager : MonoBehaviour
         if(other.tag == "EndOfState"){
             currentState.UpdateState(this);
         }
-
     }
 }
 

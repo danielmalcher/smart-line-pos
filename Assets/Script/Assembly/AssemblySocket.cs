@@ -12,14 +12,13 @@ public class AssemblySocket : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         if(col.gameObject.layer == 6){
-            boxPieces[nextPartToActivate].SetActive(true);
-            nextPartToActivate++;
-            Destroy(col.gameObject);
-            Debug.Log(nextPartToActivate);
             if(nextPartToActivate >= 4){
                 ActivateBox();
                 controller.ReturnWholeBox();
             }
+            boxPieces[nextPartToActivate].SetActive(true);
+            nextPartToActivate++;
+            Destroy(col.gameObject);
         }
     }
 

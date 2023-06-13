@@ -8,7 +8,7 @@ public class StateTransitioner : MonoBehaviour
     [SerializeField]private StateManager stateManager;
     
     void OnTriggerEnter(Collider col){
-        if(col.gameObject.layer == 6){
+        if(col.gameObject.layer == 6 || col.gameObject.layer == 11){
             stateManager.currentState.UpdateState(stateManager);
             gameObject.SetActive(false);
         }
