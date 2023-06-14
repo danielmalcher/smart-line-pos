@@ -6,7 +6,7 @@ public class ClawController : MonoBehaviour
 {
     private ConveyorBelt conveyor;
     [SerializeField]private GameObject clawSocket;
-    private Transform placementSocket;
+    [SerializeField]private Transform placementSocket;
     private Transform target;
 
     void OnTriggerEnter(Collider col){

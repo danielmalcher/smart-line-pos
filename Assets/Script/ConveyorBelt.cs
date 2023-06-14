@@ -30,6 +30,7 @@ public class ConveyorBelt : MonoBehaviour
         }
         if(col.gameObject.layer == 6 || col.gameObject.layer == 11){
             objectsOnBelt.Add(col.gameObject);
+            rotationValue = col.gameObject.transform.rotation;
             transformValue = col.gameObject.transform.position;
         }
         if(col.gameObject.layer == 11){
