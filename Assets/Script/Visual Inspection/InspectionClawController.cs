@@ -12,7 +12,7 @@ public class InspectionClawController : MonoBehaviour
         clawAnimator = gameObject.GetComponent<Animator>();
     }
 
-    void InspectBoxPart(){
+    public void InspectBoxPart(){
         clawAnimator.SetTrigger("grabBox");
     }
 }

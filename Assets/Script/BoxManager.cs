@@ -4,35 +4,19 @@ using UnityEngine;
 
 public class BoxManager : MonoBehaviour
 {
+    private Vector3 transformBackup;
 
-    [SerializeField]private GameObject initialPosition;
-
-    [SerializeField]
-    private GameObject boxLid;
-    [SerializeField]
-    private GameObject boxBottom;
-
-    private Rigidbody boxLidRb;
-    private Rigidbody boxBottomRb;
-
-    private Transform spawnPosition;
-
-    void Start()
-    {
-        initialPosition = gameObject;
+    void OnCollisionExit(Collision col){
+        transformBackup = gameObject.transform.position;
     }
 
-    void OnCollisionEnter(Collision other) {
-        if(other.gameObject.layer == 7){
-            spawnPosition = gameObject.transform;
-            dismantleBox();
+    void OnColissionEnter(Collision col){
+        if(col.gameObject.layer == 7){
+            gameObject.transform.position = transformBackup;
         }
     }
 
-    void dismantleBox(){
-        Instantiate(boxLid, spawnPosition);
-        //Instantiate(boxBottom, spawnPosition);
-        boxLidRb = boxLid.GetComponent<Rigidbody>();
-        boxBottomRb = boxBottom.GetComponent<Rigidbody>();
+    void ResetBoxPosition(Vector3 socket){
+        gameObject.transform.position = socket;
     }
 }

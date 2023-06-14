@@ -13,7 +13,7 @@ public class PackagingController : MonoBehaviour
         packagingAnimator = clawPackaging.GetComponent<Animator>();
     }
 
-    void PackageBox(){
+    public void PackageBox(){
         packagingAnimator.SetTrigger("getBox");
     }
 }

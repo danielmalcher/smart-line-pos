@@ -5,13 +5,22 @@ using UnityEngine;
 public class AutoscrewController : MonoBehaviour
 {
     private Animator screwAnimator; 
-    // Start is called before the first frame update
+    public bool isAnimationOver;
+
+    [SerializeField]private GameObject clawSocket;
+
     void Start()
     {
         screwAnimator = gameObject.GetComponent<Animator>();      
     }
 
-    void Screw(){
+    void Update(){
+        if(isAnimationOver){
+            clawSocket.SetActive(false);
+        }
+    }
+
+    public void Screw(){
         screwAnimator.SetTrigger("setScrew");
     }
 }

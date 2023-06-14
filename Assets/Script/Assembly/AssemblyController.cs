@@ -5,35 +5,30 @@ using UnityEngine;
 public class AssemblyController : MonoBehaviour
 {
 
-    [SerializeField]private GameObject rightArm;
-    [SerializeField]private GameObject leftArm;
+    [SerializeField]private GameObject rightClaw;
+    [SerializeField]private GameObject leftClaw;
 
-    private Animator rightArmAnimator;
-    private Animator leftArmAnimator;
-    // Start is called before the first frame update
-    void Start()
+    public void AssembleBox(){
+        PlaceBottom();
+        StartCoroutine(Wait());
+        PlaceBoard();
+        StartCoroutine(Wait());
+    }
+
+    void PlaceBottom(){
+        rightClaw.GetComponent<RightAssemblyClaw>().GrabBottomLid();
+    }
+
+    void PlaceBoard(){
+        leftClaw.GetComponent<LeftAssemblyClaw>().GrabBoard();
+    }
+
+    public void ReturnWholeBox(){
+        leftClaw.GetComponent<LeftAssemblyClaw>().ReturnBox();
+    }
+
+    IEnumerator Wait()
     {
-        rightArmAnimator = rightArm.GetComponent<Animator>();
-        leftArmAnimator = leftArm.GetComponent<Animator>();
-    }
-
-    void grabBottomLid(){
-        rightArmAnimator.SetTrigger("grabBottom");
-    }
-
-    void placeBattery(){
-        leftArmAnimator.SetTrigger("grabBattery");
-    }
-
-    void placeBoard(){
-        rightArmAnimator.SetTrigger("grabBoard");
-    }
-
-    void grabTopLid(){
-        leftArmAnimator.SetTrigger("grabTop");
-    }
-
-    void returnBoxToConveyor(){
-        rightArmAnimator.SetTrigger("returnBox");
+        yield return new WaitForSeconds(4);
     }
 }

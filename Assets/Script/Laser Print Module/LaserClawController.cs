@@ -9,39 +9,17 @@ public class LaserClawController : MonoBehaviour
     private bool isBoxInRightPrinter;
     private bool isBoxInLeftPrinter;
 
+    public List<LaserSocketPositioner> laserSockets;
+
     private int currentState = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         clawAnimator = gameObject.GetComponent<Animator>();
     }
 
-    void PlaceBoxRight()
+    public void StartLaserPrint()
     {
         clawAnimator.SetTrigger("grabRight");
-        isBoxInRightPrinter = true;
-    }
-
-    void PlaceBoxLeft()
-    {
-        clawAnimator.SetTrigger("grabLeft");
-        isBoxInLeftPrinter = true;
-    }
-
-    void ReturnBoxRight()
-    {
-        if(isBoxInLeftPrinter){
-            clawAnimator.SetTrigger("returnLeft");
-            isBoxInLeftPrinter = false;
-        }        
-    }
-
-    void ReturnBoxLeft()
-    {
-        if(isBoxInRightPrinter){
-            clawAnimator.SetTrigger("returnRight");
-            isBoxInRightPrinter = false;
-        }
     }
 }
