@@ -6,7 +6,7 @@ public class StateManager : MonoBehaviour
 {
     public IState currentState;
     public ConveyorBelt conveyorBelt;
-
+    public SceneManagement sceneManagement;
 
     public AssemblyState assemblyState = new AssemblyState();
     public AutoscrewState autoscrewState = new AutoscrewState();
@@ -14,6 +14,7 @@ public class StateManager : MonoBehaviour
     public PackagingState packagingState = new PackagingState();
     public PrinterState printerState = new PrinterState();
     public VisualInspectionState visualInspectionState = new VisualInspectionState();
+    public InactiveState inactiveState = new InactiveState();
 
     public PrinterController printerController;
     public AssemblyController assemblyController; 
@@ -24,11 +25,13 @@ public class StateManager : MonoBehaviour
 
     
     void Start(){
-        ChangeState(printerState);
+        ChangeState(inactiveState);
     }
 
     public void StartProduction(){
-        ChangeState(printerState);
+        if(currentState == inactiveState){
+            currentState.UpdateState(this);
+        }
     }
 
     public void ChangeState(IState newState){

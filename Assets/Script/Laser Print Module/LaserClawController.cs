@@ -11,8 +11,6 @@ public class LaserClawController : MonoBehaviour
 
     public List<LaserSocketPositioner> laserSockets;
 
-    private int currentState = 0;
-
     void Start()
     {
         clawAnimator = gameObject.GetComponent<Animator>();

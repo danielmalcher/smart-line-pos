@@ -10,10 +10,9 @@ public class PackagingState : IState
     }
 
     public void UpdateState(StateManager stateManager){
-
+        stateManager.ChangeState(stateManager.inactiveState);
     }
 
     public void OnExit(StateManager stateManager){
-        
     }
 }
