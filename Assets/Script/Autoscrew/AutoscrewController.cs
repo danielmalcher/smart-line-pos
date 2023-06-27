@@ -7,7 +7,7 @@ public class AutoscrewController : MonoBehaviour
     private Animator screwAnimator; 
     public bool isAnimationOver;
 
-    [SerializeField]private GameObject clawSocket;
+    public GameObject clawSocket;
 
     void Start()
     {

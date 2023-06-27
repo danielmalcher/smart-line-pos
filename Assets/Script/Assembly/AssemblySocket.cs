@@ -6,28 +6,48 @@ public class AssemblySocket : MonoBehaviour
 {
     [SerializeField]private List<GameObject> boxPieces;
     [SerializeField]public GameObject wholeBox;
+    private Vector3 wholeBoxPos;
+    private Quaternion wholeBoxRotation;
     private int nextPartToActivate = 0;
     private Transform target;
     [SerializeField]private AssemblyController controller;
+
+    void Start(){
+        wholeBoxPos = wholeBox.transform.position;
+        wholeBoxRotation = wholeBox.transform.rotation;
+    }
 
     void OnTriggerEnter(Collider col){
         if(col.gameObject.layer == 6){
             if(nextPartToActivate >= 3){
                 boxPieces[nextPartToActivate].SetActive(true);
                 nextPartToActivate++;
-                Destroy(col.gameObject);
+                col.gameObject.SetActive(false);
                 ActivateBox();
                 controller.ReturnWholeBox();
             }else{
                 boxPieces[nextPartToActivate].SetActive(true);
                 nextPartToActivate++;
-                Destroy(col.gameObject);
+                col.gameObject.SetActive(false);
             }
         }
     }
 
     void ActivateBox(){
         wholeBox.GetComponent<Rigidbody>().isKinematic = false;
+        wholeBox.GetComponent<BoxCollider>().enabled = !wholeBox.GetComponent<BoxCollider>().enabled;
+        wholeBox.GetComponent<SphereCollider>().enabled = !wholeBox.GetComponent<SphereCollider>().enabled;
+    }
+
+    public void DeactivateBox(){
+        wholeBox.transform.position = wholeBoxPos;
+        wholeBox.transform.rotation = wholeBoxRotation;
+        nextPartToActivate = 0;
+        for(int i = 0; i <= boxPieces.Count - 1; i++){
+            boxPieces[i].SetActive(false);
+        }
+
+        wholeBox.GetComponent<Rigidbody>().isKinematic = true;
         wholeBox.GetComponent<BoxCollider>().enabled = !wholeBox.GetComponent<BoxCollider>().enabled;
         wholeBox.GetComponent<SphereCollider>().enabled = !wholeBox.GetComponent<SphereCollider>().enabled;
     }

@@ -13,8 +13,8 @@ public class LaserPrintState : IState
     }
 
     public void OnExit(StateManager stateManager){
-        foreach(LaserSocketPositioner socket in stateManager.laserClawController.laserSockets){
-            socket.boxHasBeenRemoved = false;
+        for(int i = 0; i <= stateManager.laserClawController.laserSockets.Count -1; i++){
+            stateManager.laserClawController.laserSockets[i].boxHasBeenRemoved = false;
         }
     }
 }
