@@ -14,15 +14,22 @@ public class SceneManagement : MonoBehaviour
     private Vector3 bottomTransformPos;
     private Quaternion bottomTransformRot;
 
+    public GameObject[] stateTransition;
+
     void Start(){
         topTransformPos = top.transform.position;
         topTransformRot = top.transform.rotation;
 
         bottomTransformPos = bottom.transform.position;
         bottomTransformRot = bottom.transform.rotation;
+
+        stateTransition = GameObject.FindGameObjectsWithTag("Transitions");
     }
 
     public void ResetBoxPosition(){
+        top.SetActive(true);
+        bottom.SetActive(true);
+
         top.transform.position = topTransformPos;
         top.transform.rotation = topTransformRot;
 

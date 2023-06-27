@@ -37,6 +37,9 @@ public class ConveyorBelt : MonoBehaviour
             rotationValue = col.gameObject.transform.rotation;
             boxIsAssembled = true;
         }
+        if(col.gameObject.layer == 6 && boxIsAssembled){
+            boxIsAssembled = false;
+        }
     }
 
     void OnCollisionExit(Collision col){

@@ -15,5 +15,6 @@ public class AutoscrewState : IState
 
     public void OnExit(StateManager stateManager){
         stateManager.autoscrewController.isAnimationOver = false;
+        stateManager.autoscrewController.clawSocket.SetActive(true);
     }
 }

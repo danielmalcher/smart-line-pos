@@ -13,6 +13,6 @@ public class AssemblyState : IState
     }
 
     public void OnExit(StateManager stateManager){
-        
+        stateManager.assemblyController.ResetPositions();
     }
 }

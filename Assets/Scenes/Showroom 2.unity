@@ -2425,7 +2425,7 @@ GameObject:
   - component: {fileID: 793528092}
   m_Layer: 12
   m_Name: Autoscrew StateTransitioner
-  m_TagString: Untagged
+  m_TagString: Transitions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3224,9 +3224,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5841888180930726860, guid: 1d7ca1b1224411d43864c76365a3a8dc,
         type: 3}
+      propertyPath: board
+      value: 
+      objectReference: {fileID: 1698877511}
+    - target: {fileID: 5841888180930726860, guid: 1d7ca1b1224411d43864c76365a3a8dc,
+        type: 3}
       propertyPath: socket
       value: 
       objectReference: {fileID: 1006969420}
+    - target: {fileID: 5841888180930726860, guid: 1d7ca1b1224411d43864c76365a3a8dc,
+        type: 3}
+      propertyPath: battery
+      value: 
+      objectReference: {fileID: 2089890630}
     - target: {fileID: 5841888180930726860, guid: 1d7ca1b1224411d43864c76365a3a8dc,
         type: 3}
       propertyPath: leftClaw
@@ -3307,6 +3317,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6954613295167713565, guid: 1d7ca1b1224411d43864c76365a3a8dc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.002
+      objectReference: {fileID: 0}
     - target: {fileID: 7088346363819094325, guid: 1d7ca1b1224411d43864c76365a3a8dc,
         type: 3}
       propertyPath: m_Layer
@@ -3336,6 +3351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200678737403064878, guid: 1d7ca1b1224411d43864c76365a3a8dc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8900259790724009976, guid: 1d7ca1b1224411d43864c76365a3a8dc,
         type: 3}
@@ -3628,7 +3648,7 @@ GameObject:
   - component: {fileID: 1013572707}
   m_Layer: 0
   m_Name: Transitions
-  m_TagString: Untagged
+  m_TagString: Transitions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3654,6 +3674,12 @@ Transform:
   m_Father: {fileID: 743549517}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1075503171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1332527682514383625, guid: dd278c58ecc6dbb4dbef451a5d56dafa,
+    type: 3}
+  m_PrefabInstance: {fileID: 360615424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1086334190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5445523692605178238, guid: 1d7ca1b1224411d43864c76365a3a8dc,
@@ -4508,6 +4534,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891ae6067c6c9dc4c946d70b8e3d9285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  top: {fileID: 1075503171}
+  bottom: {fileID: 1526718297}
+  stateTransition: []
 --- !u!1 &1228499312
 GameObject:
   m_ObjectHideFlags: 0
@@ -5825,7 +5854,7 @@ GameObject:
   - component: {fileID: 1360270622}
   m_Layer: 12
   m_Name: Inactive StateTransitioner
-  m_TagString: Untagged
+  m_TagString: Transitions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -5922,6 +5951,21 @@ PrefabInstance:
       propertyPath: socketTransform
       value: 
       objectReference: {fileID: 1711481167}
+    - target: {fileID: 6605196563544504041, guid: fb1b75d0e37da104b8b8efcdc0e3be38,
+        type: 3}
+      propertyPath: laserSockets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605196563544504041, guid: fb1b75d0e37da104b8b8efcdc0e3be38,
+        type: 3}
+      propertyPath: laserSockets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1373098905}
+    - target: {fileID: 6605196563544504041, guid: fb1b75d0e37da104b8b8efcdc0e3be38,
+        type: 3}
+      propertyPath: laserSockets.Array.data[1]
+      value: 
+      objectReference: {fileID: 1893458354}
     - target: {fileID: 7548658464736829159, guid: fb1b75d0e37da104b8b8efcdc0e3be38,
         type: 3}
       propertyPath: m_RootOrder
@@ -6064,6 +6108,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1373098905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4995530372244881640, guid: fb1b75d0e37da104b8b8efcdc0e3be38,
+    type: 3}
+  m_PrefabInstance: {fileID: 1373098889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373098891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c833d6526facaf940a1b4f93bb9c2c2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1389555979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7028,7 +7084,7 @@ GameObject:
   - component: {fileID: 1620221106}
   m_Layer: 12
   m_Name: Assembly StateTransitioner
-  m_TagString: Untagged
+  m_TagString: Transitions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -7741,6 +7797,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9999998, y: 1.9999994, z: 2.110699}
   m_Center: {x: 0.00000090057637, y: -0.00000007963343, z: 0.05534992}
+--- !u!114 &1893458354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2681047973957614261, guid: fb1b75d0e37da104b8b8efcdc0e3be38,
+    type: 3}
+  m_PrefabInstance: {fileID: 1373098889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c833d6526facaf940a1b4f93bb9c2c2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1896193161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8050,7 +8118,7 @@ GameObject:
   - component: {fileID: 1993515194}
   m_Layer: 12
   m_Name: Packaging StateTransitioner
-  m_TagString: Untagged
+  m_TagString: Transitions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -8117,7 +8185,7 @@ GameObject:
   - component: {fileID: 2001146753}
   m_Layer: 12
   m_Name: Visual Inspection StateTransitioner
-  m_TagString: Untagged
+  m_TagString: Transitions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -8283,7 +8351,7 @@ GameObject:
   - component: {fileID: 2012413203}
   m_Layer: 12
   m_Name: Laser Print StateTransitioner
-  m_TagString: Untagged
+  m_TagString: Transitions
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -8741,6 +8809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conveyorBelt: {fileID: 83550045}
+  sceneManagement: {fileID: 1212875364}
   printerController: {fileID: 680041225}
   assemblyController: {fileID: 255976748}
   autoscrewController: {fileID: 2081020220}
