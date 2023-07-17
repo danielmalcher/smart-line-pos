@@ -23,6 +23,12 @@ public class StateManager : MonoBehaviour
     public PackagingController packagingController;
     public InspectionClawController inspectionClawController;
 
+    void Start(){
+        currentState = inactiveState;
+        
+        StartProduction(); //Uncomment this line to Debug in Unity
+    }
+
     public void StartProduction(){
         if(currentState == inactiveState){
             currentState.UpdateState(this);
