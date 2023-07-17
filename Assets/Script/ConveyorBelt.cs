@@ -54,7 +54,8 @@ public class ConveyorBelt : MonoBehaviour
             if(isConveyorActive){
                 objectsOnBelt[i].transform.position = new Vector3(objectsOnBelt[i].transform.position.x, objectsOnBelt[i].transform.position.y, transformValue.z);
                 if(!boxIsAssembled){
-                    objectsOnBelt[i].transform.rotation = new Quaternion(90,-90,0,0);
+                    Quaternion partRotation = Quaternion.Euler(90,-90,0);
+                    objectsOnBelt[i].transform.rotation = partRotation;
                 }else{
                     objectsOnBelt[i].transform.rotation = rotationValue;
                 }
