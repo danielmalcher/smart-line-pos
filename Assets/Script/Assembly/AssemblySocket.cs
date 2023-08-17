@@ -6,8 +6,8 @@ public class AssemblySocket : MonoBehaviour
 {
     [SerializeField]private List<GameObject> boxPieces;
     [SerializeField]public GameObject wholeBox;
-    private Vector3 wholeBoxPos;
-    private Quaternion wholeBoxRotation;
+    public Vector3 wholeBoxPos;
+    public Quaternion wholeBoxRotation;
     private int nextPartToActivate = 0;
     private Transform target;
     [SerializeField]private AssemblyController controller;
@@ -22,13 +22,21 @@ public class AssemblySocket : MonoBehaviour
             if(nextPartToActivate >= 3){
                 boxPieces[nextPartToActivate].SetActive(true);
                 nextPartToActivate++;
-                col.gameObject.SetActive(false);
+                if(col.gameObject.tag == "Lid" || col.gameObject.tag == "Bottom"){
+                    Destroy(col.gameObject);
+                } else {
+                    col.gameObject.SetActive(false);
+                }
                 ActivateBox();
                 controller.ReturnWholeBox();
             }else{
                 boxPieces[nextPartToActivate].SetActive(true);
                 nextPartToActivate++;
-                col.gameObject.SetActive(false);
+                if(col.gameObject.tag == "Lid" || col.gameObject.tag == "Bottom"){
+                    Destroy(col.gameObject);
+                } else {
+                    col.gameObject.SetActive(false);
+                }
             }
         }
     }

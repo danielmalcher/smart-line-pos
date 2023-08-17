@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ConveyorBelt : MonoBehaviour
 {
-    [SerializeField]private bool isConveyorActive = false;
+    [SerializeField]private bool isConveyorActive = true;
     [SerializeField]private float speed;
     [SerializeField]private Vector3 direction;
     [SerializeField]public List<GameObject> objectsOnBelt;
@@ -16,8 +16,15 @@ public class ConveyorBelt : MonoBehaviour
 
     private bool boxIsAssembled = false;
 
+    private bool isHoldingBox = false;
+
+    [SerializeField]private ClawsManager clawsManager;
+
     public void PowerConveyorBelt(){
-        isConveyorActive = !isConveyorActive;
+        isHoldingBox = clawsManager.GetClawStatus();
+        if(!isHoldingBox){
+            isConveyorActive = true;
+        }
     }
 
     void FixedUpdate(){
@@ -26,12 +33,10 @@ public class ConveyorBelt : MonoBehaviour
 
     void OnCollisionEnter(Collision col){
         if((col.gameObject.layer == 6 || col.gameObject.layer == 11) && !isConveyorActive){
-            PowerConveyorBelt();
-        }
+            isConveyorActive = true;
+        } 
         if(col.gameObject.layer == 6 || col.gameObject.layer == 11){
             objectsOnBelt.Add(col.gameObject);
-            rotationValue = col.gameObject.transform.rotation;
-            transformValue = col.gameObject.transform.position;
         }
         if(col.gameObject.layer == 11){
             rotationValue = col.gameObject.transform.rotation;
@@ -45,23 +50,20 @@ public class ConveyorBelt : MonoBehaviour
     void OnCollisionExit(Collision col){
         if(col.gameObject.layer == 6 || col.gameObject.layer == 11){
             objectsOnBelt.Remove(col.gameObject);
-            PowerConveyorBelt();
+            isConveyorActive = false;
         }
     }
 
     void MoveObjects(){
         for(int i = 0; i <= objectsOnBelt.Count -1; i++){
             if(isConveyorActive){
-                objectsOnBelt[i].transform.position = new Vector3(objectsOnBelt[i].transform.position.x, objectsOnBelt[i].transform.position.y, transformValue.z);
-                if(!boxIsAssembled){
+                if(objectsOnBelt[i].layer == 6){
                     Quaternion partRotation = Quaternion.Euler(90,-90,0);
                     objectsOnBelt[i].transform.rotation = partRotation;
-                }else{
+                }else if(objectsOnBelt[i].layer == 11){
                     objectsOnBelt[i].transform.rotation = rotationValue;
                 }
                 objectsOnBelt[i].GetComponent<Rigidbody>().velocity = speed*direction*Time.deltaTime;
-            } else {
-                objectsOnBelt[i].transform.position = new Vector3(objectsOnBelt[i].transform.position.x, objectsOnBelt[i].transform.position.y, transformValue.z);
             }
         }
     }

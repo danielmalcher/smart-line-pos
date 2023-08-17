@@ -18,6 +18,10 @@ public class LaserClawController : MonoBehaviour
 
     public void StartLaserPrint()
     {
-        clawAnimator.SetTrigger("grabRight");
+        clawAnimator.SetBool("grabRight", true);
+    }
+
+    public void StopLaserPrint(){
+        clawAnimator.SetBool("grabRight", false);
     }
 }

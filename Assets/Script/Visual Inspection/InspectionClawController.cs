@@ -6,12 +6,20 @@ public class InspectionClawController : MonoBehaviour
 {
     private Animator clawAnimator;
 
+    public bool isInspectionOver;
+
     void Start()
     {
         clawAnimator = gameObject.GetComponent<Animator>();
     }
 
+    void Update(){
+        if(isInspectionOver){
+            clawAnimator.SetBool("grabBox", false);
+        }
+    }
+
     public void InspectBoxPart(){
-        clawAnimator.SetTrigger("grabBox");
+        clawAnimator.SetBool("grabBox", true);
     }
 }

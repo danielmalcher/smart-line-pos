@@ -17,6 +17,8 @@ public class AssemblyController : MonoBehaviour
     private Vector3 batteryTransformPos;
     private Quaternion batteryTransformRotation;
 
+    [SerializeField]private GameObject boxPrefab;
+
     void Start(){
         boardTransformPos = board.transform.position;
         boardTransformRotation = board.transform.rotation;
@@ -47,6 +49,10 @@ public class AssemblyController : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(6);
+    }
+
+    public void SpawnNewBox(){
+        Instantiate(boxPrefab, socket.wholeBoxPos, socket.wholeBoxRotation);
     }
 
     public void ResetPositions(){

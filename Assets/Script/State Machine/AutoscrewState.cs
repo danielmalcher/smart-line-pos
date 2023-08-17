@@ -10,7 +10,9 @@ public class AutoscrewState : IState
     }
 
     public void UpdateState(StateManager stateManager){
-        stateManager.ChangeState(stateManager.packagingState);
+        OnEnter(stateManager);
+        stateManager.visualInspectionState.OnEnter(stateManager);
+        OnExit(stateManager);
     }
 
     public void OnExit(StateManager stateManager){

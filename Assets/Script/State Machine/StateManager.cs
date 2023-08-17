@@ -23,13 +23,16 @@ public class StateManager : MonoBehaviour
     public PackagingController packagingController;
     public InspectionClawController inspectionClawController;
 
+    //public GameObject transitions; 
+
     void Start(){
         currentState = inactiveState;
+        //transitions = GameObject.FindGameObjectsWithTag("Transitions");
         
         StartProduction(); //Uncomment this line to Debug in Unity
     }
 
-    public void StartProduction(){
+   public void StartProduction(){
         if(currentState == inactiveState){
             currentState.UpdateState(this);
         }
@@ -41,7 +44,7 @@ public class StateManager : MonoBehaviour
         }
         currentState = newState;
         currentState.OnEnter(this);
-    }
+    } 
 
     void OnTriggerEnter(Collider other) {
         if(other.tag == "EndOfState"){
