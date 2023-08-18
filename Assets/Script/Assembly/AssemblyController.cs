@@ -19,6 +19,7 @@ public class AssemblyController : MonoBehaviour
 
     [SerializeField]private GameObject boxPrefab;
 
+
     void Start(){
         boardTransformPos = board.transform.position;
         boardTransformRotation = board.transform.rotation;
@@ -52,6 +53,7 @@ public class AssemblyController : MonoBehaviour
     }
 
     public void SpawnNewBox(){
+        socket.nextPartToActivate = 0;
         Instantiate(boxPrefab, socket.wholeBoxPos, socket.wholeBoxRotation);
     }
 

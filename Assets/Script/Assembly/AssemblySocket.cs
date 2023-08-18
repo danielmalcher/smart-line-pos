@@ -8,7 +8,7 @@ public class AssemblySocket : MonoBehaviour
     [SerializeField]public GameObject wholeBox;
     public Vector3 wholeBoxPos;
     public Quaternion wholeBoxRotation;
-    private int nextPartToActivate = 0;
+    public int nextPartToActivate = 0;
     private Transform target;
     [SerializeField]private AssemblyController controller;
 

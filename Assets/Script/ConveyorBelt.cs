@@ -21,10 +21,7 @@ public class ConveyorBelt : MonoBehaviour
     [SerializeField]private ClawsManager clawsManager;
 
     public void PowerConveyorBelt(){
-        isHoldingBox = clawsManager.GetClawStatus();
-        if(!isHoldingBox){
-            isConveyorActive = true;
-        }
+        isConveyorActive = !isConveyorActive;
     }
 
     void FixedUpdate(){
@@ -37,6 +34,8 @@ public class ConveyorBelt : MonoBehaviour
         } 
         if(col.gameObject.layer == 6 || col.gameObject.layer == 11){
             objectsOnBelt.Add(col.gameObject);
+            rotationValue = col.gameObject.transform.rotation;
+            transformValue = col.gameObject.transform.position;
         }
         if(col.gameObject.layer == 11){
             rotationValue = col.gameObject.transform.rotation;
@@ -61,7 +60,7 @@ public class ConveyorBelt : MonoBehaviour
                     Quaternion partRotation = Quaternion.Euler(90,-90,0);
                     objectsOnBelt[i].transform.rotation = partRotation;
                 }else if(objectsOnBelt[i].layer == 11){
-                    objectsOnBelt[i].transform.rotation = rotationValue;
+                    objectsOnBelt[i].transform.rotation = Quaternion.Euler(0,90,0);
                 }
                 objectsOnBelt[i].GetComponent<Rigidbody>().velocity = speed*direction*Time.deltaTime;
             }

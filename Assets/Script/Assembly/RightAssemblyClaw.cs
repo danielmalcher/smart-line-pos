@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class RightAssemblyClaw : MonoBehaviour
 {
-    private Animator rightArmAnimator;
+    public Animator rightArmAnimator;
+    
+    public bool isAnimationOver;
 
     void Start()
     {
         rightArmAnimator = gameObject.GetComponent<Animator>();
     }
 
+    void Update(){
+        if(isAnimationOver){
+            rightArmAnimator.SetBool("grabBottom", false);
+        }
+    }
+
     public void GrabBottomLid(){
-        rightArmAnimator.SetTrigger("grabBottom");
+        isAnimationOver = false;
+        rightArmAnimator.SetBool("grabBottom", true);
+        Debug.Log("in grabbottomlid");
     }
 }

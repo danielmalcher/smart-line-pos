@@ -4449,6 +4449,12 @@ PrefabInstance:
       objectReference: {fileID: 1181940309}
     - target: {fileID: 5841888180930726860, guid: 1d7ca1b1224411d43864c76365a3a8dc,
         type: 3}
+      propertyPath: boxPrefab
+      value: 
+      objectReference: {fileID: 3680341909899539080, guid: 0f53f9471e797db4e858987e7f0b2cec,
+        type: 3}
+    - target: {fileID: 5841888180930726860, guid: 1d7ca1b1224411d43864c76365a3a8dc,
+        type: 3}
       propertyPath: rightClaw
       value: 
       objectReference: {fileID: 919273444}
@@ -4549,6 +4555,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7283401605122194944, guid: 1d7ca1b1224411d43864c76365a3a8dc,
         type: 3}
+      propertyPath: m_Name
+      value: Assembly Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283401605122194944, guid: 1d7ca1b1224411d43864c76365a3a8dc,
+        type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
@@ -4576,6 +4587,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034723078009077515, guid: 1d7ca1b1224411d43864c76365a3a8dc,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8200678737403064878, guid: 1d7ca1b1224411d43864c76365a3a8dc,
         type: 3}
@@ -4757,6 +4773,9 @@ MonoBehaviour:
   - {fileID: 1006969414}
   - {fileID: 1006969415}
   wholeBox: {fileID: 1006969416}
+  wholeBoxPos: {x: 0, y: 0, z: 0}
+  wholeBoxRotation: {x: 0, y: 0, z: 0, w: 0}
+  nextPartToActivate: 0
   controller: {fileID: 255976748}
 --- !u!1001 &1012741304
 PrefabInstance:
@@ -10487,17 +10506,17 @@ PrefabInstance:
     - target: {fileID: -3964266140186548540, guid: e99ac88f89031a4499f299d9e39a7cdd,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.019312497
+      value: 0.025553135
       objectReference: {fileID: 0}
     - target: {fileID: -3964266140186548540, guid: e99ac88f89031a4499f299d9e39a7cdd,
         type: 3}
       propertyPath: m_Center.y
-      value: 1.6098258e-17
+      value: -6.023086e-18
       objectReference: {fileID: 0}
     - target: {fileID: -3964266140186548540, guid: e99ac88f89031a4499f299d9e39a7cdd,
         type: 3}
       propertyPath: m_Center.z
-      value: -0.0021562516
+      value: 0.00096406974
       objectReference: {fileID: 0}
     - target: {fileID: -988381926481395402, guid: e99ac88f89031a4499f299d9e39a7cdd,
         type: 3}
@@ -11874,8 +11893,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.10122599, y: 0.042929053, z: 0.13264287}
-  m_Center: {x: -0.0033536796, y: 0.1471674, z: -0.0007924755}
+  m_Size: {x: 0.10122599, y: 0.060958605, z: 0.13264287}
+  m_Center: {x: -0.0033092985, y: 0.15618251, z: -0.00076861976}
 --- !u!1 &2098573985
 GameObject:
   m_ObjectHideFlags: 0
