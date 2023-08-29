@@ -55,6 +55,7 @@ public class AssemblyController : MonoBehaviour
     public void SpawnNewBox(){
         socket.nextPartToActivate = 0;
         Instantiate(boxPrefab, socket.wholeBoxPos, socket.wholeBoxRotation);
+        Debug.Log(socket.nextPartToActivate);
     }
 
     public void ResetPositions(){

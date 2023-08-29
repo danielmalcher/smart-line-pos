@@ -9,7 +9,7 @@ public class AssemblyState : IState
     }
 
     public void UpdateState(StateManager stateManager){
-        stateManager.ChangeState(stateManager.autoscrewState);
+        
     }
 
     public void OnExit(StateManager stateManager){

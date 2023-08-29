@@ -7,7 +7,7 @@ public class InactiveState : IState
     private GameObject[] stateTransition;
 
     public void OnEnter(StateManager stateManager){
-        stateManager.assemblyController.socket.DeactivateBox();
+        
     }
 
     public void UpdateState(StateManager stateManager){

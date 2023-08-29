@@ -41,6 +41,17 @@ public class AssemblySocket : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider col){
+        if(col.gameObject.layer == 11){
+            wholeBox = col.gameObject;
+            for (int i = 0; i < wholeBox.transform.childCount; i++)
+            {
+                GameObject boxPart = wholeBox.transform.GetChild(i).gameObject;
+                boxPieces[i] = boxPart;
+            }
+        }
+    }
+
     void ActivateBox(){
         wholeBox.GetComponent<Rigidbody>().isKinematic = false;
         wholeBox.GetComponent<BoxCollider>().enabled = !wholeBox.GetComponent<BoxCollider>().enabled;

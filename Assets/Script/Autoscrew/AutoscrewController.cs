@@ -8,6 +8,7 @@ public class AutoscrewController : MonoBehaviour
     public bool isAnimationOver;
 
     public GameObject clawSocket;
+    public ConveyorBelt conveyor;
 
     void Start()
     {
@@ -16,11 +17,15 @@ public class AutoscrewController : MonoBehaviour
 
     void Update(){
         if(isAnimationOver){
-            clawSocket.SetActive(false);
+            screwAnimator.SetBool("setScrew", false);
+            conveyor.PowerConveyorBelt();
+
         }
     }
 
     public void Screw(){
-        screwAnimator.SetTrigger("setScrew");
+        if(!isAnimationOver){
+            screwAnimator.SetBool("setScrew", true);
+        }
     }
 }
