@@ -22,4 +22,10 @@ public class InactiveTriggerer : MonoBehaviour
             }
         }
     }
+
+    void OnTriggerExit(Collider col){
+        if(col.gameObject.layer == 11){
+            stateManager.packagingState.OnExit(stateManager);
+        }
+    }
 }

@@ -18,6 +18,10 @@ public class AssemblyController : MonoBehaviour
     private Quaternion batteryTransformRotation;
 
     [SerializeField]private GameObject boxPrefab;
+    [SerializeField]private GameObject wholeBoxPosition;
+    private Vector3 wholeBoxTransformPos;
+    private Quaternion wholeBoxTransformRotation;
+    private bool boxHasSpawned;
 
 
     void Start(){
@@ -26,6 +30,9 @@ public class AssemblyController : MonoBehaviour
 
         batteryTransformPos = battery.transform.position;
         batteryTransformRotation = battery.transform.rotation;
+
+        wholeBoxTransformPos = wholeBoxPosition.transform.position;
+        wholeBoxTransformRotation = wholeBoxPosition.transform.rotation;
     }
 
     public void AssembleBox(){
@@ -52,12 +59,6 @@ public class AssemblyController : MonoBehaviour
         yield return new WaitForSeconds(6);
     }
 
-    public void SpawnNewBox(){
-        socket.nextPartToActivate = 0;
-        Instantiate(boxPrefab, socket.wholeBoxPos, socket.wholeBoxRotation);
-        Debug.Log(socket.nextPartToActivate);
-    }
-
     public void ResetPositions(){
         board.SetActive(true);
         battery.SetActive(true);
@@ -67,5 +68,14 @@ public class AssemblyController : MonoBehaviour
 
         battery.transform.position = batteryTransformPos;
         battery.transform.rotation = batteryTransformRotation;
+
+        boxHasSpawned = false;
+    }
+
+    public void SpawnNewBox(){
+        if(boxHasSpawned == false){
+            Instantiate(boxPrefab, wholeBoxTransformPos, wholeBoxTransformRotation);
+        }
+        boxHasSpawned = true;
     }
 }

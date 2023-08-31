@@ -9,9 +9,10 @@ public class AutoscrewTriggerer : MonoBehaviour
     public GameObject box;
     public Vector3 wholeBoxPosition;
     public Quaternion wholeBoxRotation;
+    [SerializeField]private AutoscrewController autoscrewController;
 
     void OnTriggerEnter(Collider col){
-        if(col.gameObject.layer == 11){
+        if(col.gameObject.layer == 11 && !autoscrewController.isAnimationOver){
             collider.enabled = false;
             stateManager.autoscrewState.OnEnter(stateManager);
             box = col.gameObject;

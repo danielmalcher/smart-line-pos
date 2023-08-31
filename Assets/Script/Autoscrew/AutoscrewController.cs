@@ -19,6 +19,7 @@ public class AutoscrewController : MonoBehaviour
         if(isAnimationOver){
             screwAnimator.SetBool("setScrew", false);
             conveyor.PowerConveyorBelt();
+            isAnimationOver = false;
 
         }
     }

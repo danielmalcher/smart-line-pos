@@ -5,6 +5,7 @@ using UnityEngine;
 public class AssemblyState : IState
 {
     public void OnEnter(StateManager stateManager){
+        stateManager.assemblyController.SpawnNewBox();
         stateManager.assemblyController.AssembleBox();
     }
 
@@ -14,6 +15,5 @@ public class AssemblyState : IState
 
     public void OnExit(StateManager stateManager){
         stateManager.assemblyController.ResetPositions();
-        stateManager.assemblyController.SpawnNewBox();
     }
 }

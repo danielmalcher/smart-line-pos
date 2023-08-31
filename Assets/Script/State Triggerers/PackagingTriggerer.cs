@@ -9,7 +9,7 @@ public class PackagingTriggerer : MonoBehaviour
     void OnTriggerEnter(Collider col){
         if(col.gameObject.layer == 11){
             stateManager.autoscrewState.OnExit(stateManager);
-            stateManager.assemblyState.OnEnter(stateManager);
+            stateManager.packagingState.OnEnter(stateManager);
         }
     }
 }
