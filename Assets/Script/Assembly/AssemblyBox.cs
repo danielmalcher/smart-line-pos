@@ -9,12 +9,15 @@ public class AssemblyBox : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         if(col.gameObject.layer == 6){
-            if(col.gameObject.tag == "Lid" && nextPartToActivate >= 3){
+            if(col.gameObject.tag == "Lid"){
                 
                 if(col.gameObject.tag == "Lid" || col.gameObject.tag == "Bottom"){
                     Destroy(col.gameObject);
                 } else {
                     col.gameObject.SetActive(false);
+                }
+                if(nextPartToActivate <= 3){
+                    boxPieces[nextPartToActivate].SetActive(true);
                 }
                 ActivateBox();
             }else{

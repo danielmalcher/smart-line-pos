@@ -22,6 +22,5 @@ public class RightAssemblyClaw : MonoBehaviour
     public void GrabBottomLid(){
         isAnimationOver = false;
         rightArmAnimator.SetBool("grabBottom", true);
-        Debug.Log("in grabbottomlid");
     }
 }

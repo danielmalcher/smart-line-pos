@@ -10,6 +10,7 @@ public class InactiveTriggerer : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         if(col.gameObject.layer == 11){
+            stateManager.packagingState.OnExit(stateManager);
             Destroy(col.gameObject);
             if(boxNumber <= 23){
                 boxes[boxNumber].SetActive(true);
@@ -20,12 +21,6 @@ public class InactiveTriggerer : MonoBehaviour
                     box.SetActive(false);
                 }
             }
-        }
-    }
-
-    void OnTriggerExit(Collider col){
-        if(col.gameObject.layer == 11){
-            stateManager.packagingState.OnExit(stateManager);
         }
     }
 }

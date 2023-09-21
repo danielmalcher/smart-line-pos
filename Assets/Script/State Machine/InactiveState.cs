@@ -18,7 +18,6 @@ public class InactiveState : IState
         stateManager.sceneManagement.ResetBoxPosition();
 
         foreach(GameObject transition in stateManager.sceneManagement.stateTransition){
-            Debug.Log(transition);
             transition.SetActive(true);
         }
     }

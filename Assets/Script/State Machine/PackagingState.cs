@@ -5,7 +5,6 @@ using UnityEngine;
 public class PackagingState : IState
 {
     public void OnEnter(StateManager stateManager){
-        stateManager.conveyorBelt.PowerConveyorBelt();
         stateManager.packagingController.PackageBox();
     }
 
@@ -13,6 +12,6 @@ public class PackagingState : IState
     }
 
     public void OnExit(StateManager stateManager){
-        stateManager.conveyorBelt.PowerConveyorBelt();
+        stateManager.conveyorBelt.isConveyorActive = true;
     }
 }

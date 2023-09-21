@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ConveyorBelt : MonoBehaviour
 {
-    [SerializeField]private bool isConveyorActive = true;
+    [SerializeField]public bool isConveyorActive = true;
     [SerializeField]private float speed;
     [SerializeField]private Vector3 direction;
     [SerializeField]public List<GameObject> objectsOnBelt;
@@ -20,6 +20,8 @@ public class ConveyorBelt : MonoBehaviour
 
     [SerializeField]private ClawsManager clawsManager;
 
+
+
     public void PowerConveyorBelt(){
         isConveyorActive = !isConveyorActive;
     }
@@ -29,6 +31,9 @@ public class ConveyorBelt : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision col){
+        if(col.gameObject.tag == "Building Part"){
+            //a
+        }
         if((col.gameObject.layer == 6 || col.gameObject.layer == 11) && !isConveyorActive){
             isConveyorActive = true;
         } 

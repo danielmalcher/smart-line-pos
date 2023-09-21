@@ -9,6 +9,7 @@ public class AutoscrewController : MonoBehaviour
 
     public GameObject clawSocket;
     public ConveyorBelt conveyor;
+    private bool isBoxScrewed;
 
     void Start()
     {
@@ -16,17 +17,20 @@ public class AutoscrewController : MonoBehaviour
     }
 
     void Update(){
-        if(isAnimationOver){
+        if(isAnimationOver && !isBoxScrewed){
             screwAnimator.SetBool("setScrew", false);
             conveyor.PowerConveyorBelt();
+            Debug.Log("Inside autoscrew Update");
             isAnimationOver = false;
-
+            isBoxScrewed = true;
+            Debug.Log(isAnimationOver);
         }
     }
 
     public void Screw(){
         if(!isAnimationOver){
             screwAnimator.SetBool("setScrew", true);
+            isBoxScrewed = false;
         }
     }
 }

@@ -7,7 +7,7 @@ public class AssemblyTriggerer : MonoBehaviour
     [SerializeField]private StateManager stateManager;
 
     void OnTriggerEnter(Collider col){
-        if(col.gameObject.tag == "Lid"){
+        if(col.gameObject.tag == "Lid" && !stateManager.assemblyController.boxHasSpawned){
             stateManager.assemblyState.OnEnter(stateManager);
         }
         if(col.gameObject.layer == 11){

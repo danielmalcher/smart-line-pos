@@ -21,7 +21,7 @@ public class AssemblyController : MonoBehaviour
     [SerializeField]private GameObject wholeBoxPosition;
     private Vector3 wholeBoxTransformPos;
     private Quaternion wholeBoxTransformRotation;
-    private bool boxHasSpawned;
+    public bool boxHasSpawned;
 
 
     void Start(){

@@ -13,8 +13,8 @@ public class AutoscrewTriggerer : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         if(col.gameObject.layer == 11 && !autoscrewController.isAnimationOver){
-            collider.enabled = false;
             stateManager.autoscrewState.OnEnter(stateManager);
+            Debug.Log("Inside autoscrew OnTriggerEnter");
             box = col.gameObject;
             wholeBoxPosition = col.gameObject.transform.position;
             wholeBoxRotation = col.gameObject.transform.rotation;
