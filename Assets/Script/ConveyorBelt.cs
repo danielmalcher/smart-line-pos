@@ -16,8 +16,6 @@ public class ConveyorBelt : MonoBehaviour
 
     private bool boxIsAssembled = false;
 
-    private bool isHoldingBox = false;
-
     [SerializeField]private ClawsManager clawsManager;
 
 
@@ -31,9 +29,6 @@ public class ConveyorBelt : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision col){
-        if(col.gameObject.tag == "Building Part"){
-            //a
-        }
         if((col.gameObject.layer == 6 || col.gameObject.layer == 11) && !isConveyorActive){
             isConveyorActive = true;
         } 

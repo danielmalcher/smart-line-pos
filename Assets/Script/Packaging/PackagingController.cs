@@ -6,7 +6,7 @@ public class PackagingController : MonoBehaviour
 {
     [SerializeField]private GameObject clawPackaging;
 
-    private Animator packagingAnimator;
+    public Animator packagingAnimator;
 
     void Start()
     {
@@ -14,6 +14,6 @@ public class PackagingController : MonoBehaviour
     }
 
     public void PackageBox(){
-        packagingAnimator.SetTrigger("getBox");
+        packagingAnimator.SetBool("getBox", true);
     }
 }

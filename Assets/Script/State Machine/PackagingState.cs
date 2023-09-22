@@ -13,5 +13,6 @@ public class PackagingState : IState
 
     public void OnExit(StateManager stateManager){
         stateManager.conveyorBelt.isConveyorActive = true;
+        stateManager.packagingController.packagingAnimator.SetBool("getBox", false);
     }
 }

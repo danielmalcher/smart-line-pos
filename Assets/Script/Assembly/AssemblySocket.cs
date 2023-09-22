@@ -12,6 +12,7 @@ public class AssemblySocket : MonoBehaviour
             if(nextPartToActivate >= 3){
                 nextPartToActivate++;
                 controller.ReturnWholeBox();
+                nextPartToActivate = 0;
             }else{
                 nextPartToActivate++;
             }
