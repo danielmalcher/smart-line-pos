@@ -8,9 +8,6 @@ public class PackagingState : IState
         stateManager.packagingController.PackageBox();
     }
 
-    public void UpdateState(StateManager stateManager){
-    }
-
     public void OnExit(StateManager stateManager){
         stateManager.conveyorBelt.isConveyorActive = true;
         stateManager.packagingController.packagingAnimator.SetBool("getBox", false);

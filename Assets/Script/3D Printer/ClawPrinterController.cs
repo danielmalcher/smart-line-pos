@@ -17,16 +17,8 @@ public class ClawPrinterController : MonoBehaviour
 
     void Update()
     {
-        //checkPrinterStatus();
         finishMovement();
     }
-
-    /* void checkPrinterStatus(){
-        if(printerController.isPrinterDoorOpen){
-            Debug.Log("inside checkprinterstatus");
-            clawAnimator.SetTrigger("grabbingBox");
-        }
-    } */
 
     private void finishMovement(){
         if(movementEnd){

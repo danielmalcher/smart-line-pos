@@ -8,10 +8,6 @@ public class PrinterState : IState
         stateManager.printerController.PrintBox();
     }
 
-    public void UpdateState(StateManager stateManager){
-        stateManager.ChangeState(stateManager.visualInspectionState);
-    }
-
     public void OnExit(StateManager stateManager){
         stateManager.printerController.isPrinterDoorOpen = false;
         stateManager.printerController.isPrinting = false;

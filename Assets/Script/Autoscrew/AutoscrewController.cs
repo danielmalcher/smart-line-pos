@@ -20,10 +20,8 @@ public class AutoscrewController : MonoBehaviour
         if(isAnimationOver && !isBoxScrewed){
             screwAnimator.SetBool("setScrew", false);
             conveyor.PowerConveyorBelt();
-            Debug.Log("Inside autoscrew Update");
             isAnimationOver = false;
             isBoxScrewed = true;
-            Debug.Log(isAnimationOver);
         }
     }
 
