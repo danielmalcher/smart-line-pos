@@ -17,12 +17,22 @@ public class AssemblyController : MonoBehaviour
     private Vector3 batteryTransformPos;
     private Quaternion batteryTransformRotation;
 
+    [SerializeField]private GameObject boxPrefab;
+    [SerializeField]private GameObject wholeBoxPosition;
+    private Vector3 wholeBoxTransformPos;
+    private Quaternion wholeBoxTransformRotation;
+    public bool boxHasSpawned;
+
+
     void Start(){
         boardTransformPos = board.transform.position;
         boardTransformRotation = board.transform.rotation;
 
         batteryTransformPos = battery.transform.position;
         batteryTransformRotation = battery.transform.rotation;
+
+        wholeBoxTransformPos = wholeBoxPosition.transform.position;
+        wholeBoxTransformRotation = wholeBoxPosition.transform.rotation;
     }
 
     public void AssembleBox(){
@@ -58,5 +68,14 @@ public class AssemblyController : MonoBehaviour
 
         battery.transform.position = batteryTransformPos;
         battery.transform.rotation = batteryTransformRotation;
+
+        boxHasSpawned = false;
+    }
+
+    public void SpawnNewBox(){
+        if(boxHasSpawned == false){
+            Instantiate(boxPrefab, wholeBoxTransformPos, wholeBoxTransformRotation);
+        }
+        boxHasSpawned = true;
     }
 }

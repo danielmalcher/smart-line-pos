@@ -9,6 +9,8 @@ public class ClawController : MonoBehaviour
     [SerializeField]private Transform placementSocket;
     private Transform target;
 
+    public bool isHoldingBox = false;
+
     void OnTriggerEnter(Collider col){
         if(col.gameObject.layer == 9){
             placementSocket = col.gameObject.transform;
@@ -17,6 +19,7 @@ public class ClawController : MonoBehaviour
 
     void OnTriggerStay(Collider col){
         if(col.gameObject.layer == 6  || col.gameObject.layer == 11){
+            isHoldingBox = true;
             target = col.gameObject.transform;
             GrabTarget(target);
         }
@@ -24,6 +27,7 @@ public class ClawController : MonoBehaviour
 
     void OnTriggerExit(Collider col){
         if(col.gameObject.layer == 6 || col.gameObject.layer == 11){
+            isHoldingBox = false;
             col.gameObject.transform.position = placementSocket.position;
             col.gameObject.transform.rotation = placementSocket.rotation;
         }

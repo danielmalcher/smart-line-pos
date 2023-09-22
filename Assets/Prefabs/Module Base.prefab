@@ -51,7 +51,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 3831
+    m_Bits: 20215
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -186,6 +186,7 @@ MonoBehaviour:
   objectsOnBelt: []
   boxes: []
   positionReference: {fileID: 0}
+  clawsManager: {fileID: 0}
 --- !u!1 &3993554051232561071
 GameObject:
   m_ObjectHideFlags: 0

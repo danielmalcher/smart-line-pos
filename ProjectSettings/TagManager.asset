@@ -7,6 +7,8 @@ TagManager:
   - Transitions
   - Lid
   - Bottom
+  - Claw
+  - Building Part
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - Box
   - Transition
   - Grababble Box
-  - 
+  - Box Bottom
   - 
   - 
   - 

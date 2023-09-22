@@ -5,11 +5,12 @@ using UnityEngine;
 public class AssemblyState : IState
 {
     public void OnEnter(StateManager stateManager){
+        stateManager.assemblyController.SpawnNewBox();
         stateManager.assemblyController.AssembleBox();
     }
 
     public void UpdateState(StateManager stateManager){
-        stateManager.ChangeState(stateManager.autoscrewState);
+        
     }
 
     public void OnExit(StateManager stateManager){

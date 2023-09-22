@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClawPrinterController : MonoBehaviour
 {
     [SerializeField]private PrinterController printerController;
-    private Animator clawAnimator;
+    public Animator clawAnimator;
 
     public bool movementEnd;
 
@@ -17,21 +17,23 @@ public class ClawPrinterController : MonoBehaviour
 
     void Update()
     {
-        checkPrinterStatus();
+        //checkPrinterStatus();
         finishMovement();
     }
 
-    void checkPrinterStatus(){
+    /* void checkPrinterStatus(){
         if(printerController.isPrinterDoorOpen){
-            clawAnimator.SetBool("grabbingBox", true);
+            Debug.Log("inside checkprinterstatus");
+            clawAnimator.SetTrigger("grabbingBox");
         }
-    }
+    } */
 
     private void finishMovement(){
         if(movementEnd){
-            clawAnimator.SetBool("grabbingBox", false);
             printerController.isPrinterDoorOpen = false;
             printerController.printerAnimator.SetBool("isOpen", false);
+            clawAnimator.SetBool("grabbingBox", false);
+
         }
     }
 }

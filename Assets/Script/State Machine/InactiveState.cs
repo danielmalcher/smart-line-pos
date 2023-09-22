@@ -7,7 +7,7 @@ public class InactiveState : IState
     private GameObject[] stateTransition;
 
     public void OnEnter(StateManager stateManager){
-        stateManager.assemblyController.socket.DeactivateBox();
+        
     }
 
     public void UpdateState(StateManager stateManager){
@@ -18,7 +18,6 @@ public class InactiveState : IState
         stateManager.sceneManagement.ResetBoxPosition();
 
         foreach(GameObject transition in stateManager.sceneManagement.stateTransition){
-            Debug.Log(transition);
             transition.SetActive(true);
         }
     }
