@@ -16,10 +16,6 @@ public class ConveyorBelt : MonoBehaviour
 
     private bool boxIsAssembled = false;
 
-    [SerializeField]private ClawsManager clawsManager;
-
-
-
     public void PowerConveyorBelt(){
         isConveyorActive = !isConveyorActive;
     }
