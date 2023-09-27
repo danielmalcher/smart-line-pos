@@ -10,9 +10,6 @@ public class AutoscrewState : IState
         stateManager.autoscrewController.Screw();
     }
 
-    public void UpdateState(StateManager stateManager){
-    }
-
     public void OnExit(StateManager stateManager){
         stateManager.autoscrewController.isAnimationOver = false;
     }

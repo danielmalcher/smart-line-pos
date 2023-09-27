@@ -8,10 +8,6 @@ public class VisualInspectionState : IState
         stateManager.inspectionClawController.InspectBoxPart();
     }
 
-    public void UpdateState(StateManager stateManager){
-        stateManager.ChangeState(stateManager.laserPrintState);
-    }
-
     public void OnExit(StateManager stateManager){
         stateManager.printerController.SpawnNewBoxes();
     }

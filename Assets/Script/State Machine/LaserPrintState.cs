@@ -11,10 +11,6 @@ public class LaserPrintState : IState
         stateManager.laserClawController.StartLaserPrint();
     }
 
-    public void UpdateState(StateManager stateManager){
-        stateManager.ChangeState(stateManager.assemblyState);
-    }
-
     public void OnExit(StateManager stateManager){
         stateManager.laserClawController.StopLaserPrint();
     }

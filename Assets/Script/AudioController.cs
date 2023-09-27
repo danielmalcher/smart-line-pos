@@ -15,7 +15,6 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     public void PlayAudio(int moduleNumber)
     {
         StopOverlappingAudio();

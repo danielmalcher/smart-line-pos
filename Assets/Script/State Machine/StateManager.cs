@@ -14,7 +14,6 @@ public class StateManager : MonoBehaviour
     public PackagingState packagingState = new PackagingState();
     public PrinterState printerState = new PrinterState();
     public VisualInspectionState visualInspectionState = new VisualInspectionState();
-    public InactiveState inactiveState = new InactiveState();
 
     public PrinterController printerController;
     public AssemblyController assemblyController; 
@@ -23,39 +22,13 @@ public class StateManager : MonoBehaviour
     public PackagingController packagingController;
     public InspectionClawController inspectionClawController;
 
-    //public GameObject transitions; 
-
     void Start(){
-        currentState = inactiveState;
-        //transitions = GameObject.FindGameObjectsWithTag("Transitions");
-        
-        StartProduction(); //Uncomment this line to Debug in Unity
-    }
-
-   public void StartProduction(){
-        if(currentState == inactiveState){
-            currentState.UpdateState(this);
-        }
-    }
-
-    public void ChangeState(IState newState){
-        if(currentState != null){
-            currentState.OnExit(this);
-        }
-        currentState = newState;
-        currentState.OnEnter(this);
-    } 
-
-    void OnTriggerEnter(Collider other) {
-        if(other.tag == "EndOfState"){
-            currentState.UpdateState(this);
-        }
+        printerState.OnEnter(this);
     }
 }
 
 public interface IState
 {
     public void OnEnter(StateManager stateManager);
-    public void UpdateState(StateManager stateManager);
     public void OnExit(StateManager stateManager);
 }

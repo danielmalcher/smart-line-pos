@@ -9,10 +9,6 @@ public class AssemblyState : IState
         stateManager.assemblyController.AssembleBox();
     }
 
-    public void UpdateState(StateManager stateManager){
-        
-    }
-
     public void OnExit(StateManager stateManager){
         stateManager.assemblyController.ResetPositions();
     }
