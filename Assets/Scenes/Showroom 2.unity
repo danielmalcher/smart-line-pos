@@ -2325,12 +2325,16 @@ MonoBehaviour:
   - {fileID: 1198342078}
   - {fileID: 296823001}
   - {fileID: 292070073}
+  - {fileID: 1502839038}
   - {fileID: 330468725}
   - {fileID: 1445637291}
   - {fileID: 2007129405}
   - {fileID: 2056629629}
   - {fileID: 2081362554}
   - {fileID: 144246119}
+  - {fileID: 1695677654}
+  - {fileID: 514388056}
+  - {fileID: 421679435}
 --- !u!1 &284036355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2506,7 +2510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Station 4
+  m_text: 'Station 3
 
     Auto Laser Print'
   m_isRightToLeft: 0
@@ -4091,7 +4095,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Station 1
+  m_text: '
 
     Kyosk'
   m_isRightToLeft: 0
@@ -5146,7 +5150,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Station 5
+  m_text: 'Station 4
 
     Assembly Parts'
   m_isRightToLeft: 0
@@ -11532,7 +11536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Station 7
+  m_text: 'Station 6
 
     Auto Packing'
   m_isRightToLeft: 0
@@ -11803,7 +11807,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Station 2
+  m_text: 'Station 1
 
     3D Printing'
   m_isRightToLeft: 0
@@ -15635,7 +15639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Station 6
+  m_text: 'Station 5
 
     Auto Screwing'
   m_isRightToLeft: 0
@@ -17973,7 +17977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Station 3
+  m_text: 'Station 2
 
     Optical Inspection'
   m_isRightToLeft: 0
