@@ -10,7 +10,6 @@ public class LaserPrintTriggerer : MonoBehaviour
     void OnTriggerEnter(Collider col){
         if(col.gameObject.tag == "Lid"){
             stateManager.laserPrintState.OnEnter(stateManager);
-            visualInspectionTrans.activated = false;
         }
     }
 

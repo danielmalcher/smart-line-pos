@@ -9,6 +9,7 @@ TagManager:
   - Bottom
   - Claw
   - Building Part
+  - Box Remover
   layers:
   - Default
   - TransparentFX

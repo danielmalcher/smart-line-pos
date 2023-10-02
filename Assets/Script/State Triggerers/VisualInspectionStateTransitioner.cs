@@ -9,9 +9,8 @@ public class VisualInspectionStateTransitioner : MonoBehaviour
     public bool activated;
 
     void OnTriggerEnter(Collider col){
-        if(col.gameObject.tag == "Lid" && !activated){
+        if(col.gameObject.tag == "Lid"){
             stateManager.visualInspectionState.OnEnter(stateManager);
-            activated = true;
         }
     }
 

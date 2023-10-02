@@ -10,6 +10,5 @@ public class VisualInspectionState : IState
 
     public void OnExit(StateManager stateManager){
         stateManager.printerController.SpawnNewBoxes();
-        stateManager.inspectionClawController.RestartLoop();
     }
 }
