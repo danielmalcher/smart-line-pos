@@ -6,6 +6,7 @@ public class VisualInspectionStateTransitioner : MonoBehaviour
 {
 
     [SerializeField]private StateManager stateManager;
+    public bool activated;
 
     void OnTriggerEnter(Collider col){
         if(col.gameObject.tag == "Lid"){
